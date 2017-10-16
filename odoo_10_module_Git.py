@@ -9,5 +9,5 @@ master='git push origin master'
 os.system('echo %s' % (master))
 username='khyasir'
 password='yasir43'
-# os.system('echo %s' % (username))
-# os.system('echo %s' % (password))
+os.system('echo %s' % (username))
+os.system('echo %s' % (password))
