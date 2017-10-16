@@ -8,7 +8,8 @@ os.system('git add *')
 os.system('git status')
 os.system('git commit -m "this is your comment"')
 master='git push origin master'
-os.system('echo %s' % (master))
+os.system('git push origin master')
+# os.system('echo %s' % (master))
 username='khyasir'
 password='yasir43'
 # Wait for 5 seconds
