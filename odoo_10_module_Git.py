@@ -9,7 +9,7 @@ os.system('git status')
 os.system('git commit -m "this is your comment"')
 master='git push origin master'
 # os.system('git push origin master')
-os.system('git push origin master | khyasir')
+os.system('khyasir | git push origin master ')
 # os.system('echo %s' % (master))
 # username='khyasir'
 # password='yasir43'
