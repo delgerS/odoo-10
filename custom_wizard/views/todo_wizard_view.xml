@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="custom_wizard_form_id" model="ir.ui.view">
+            <field name="name">custom_wizard_form_id</field>
+            <field name="model">custom.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <footer>
+                        <button name="create_request" 
+                                string="Finished" type="object" 
+                                class="btn-primary"/>
+                        <button string="Cancel" 
+                                class="btn-default" 
+                                special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_salesperson_wizard" model="ir.actions.act_window">
+
+            <field name="name">Hi i am a custom wizard enter the value to asign all record of test1 form field = name</field>
+            <field name="res_model">custom.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="custom_wizard_form_id"/>
+            <field name="target">new</field>
+        
+        </record>
+  
+        <menuitem id="child_custom_wizard" name="Module_custom_wizard" 
+                action="action_salesperson_wizard" parent="test1.menu_1" sequence="1"/>
+    </data>
+</odoo>

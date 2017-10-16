@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="view_kanban_board_order_regis" model="ir.ui.view">
+            <field name="name">Order Register Kanban</field>
+            <field name="model">custom.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette">
+                                <h4><field name="name"/></h4>
+                                    <field name="color"/>
+                                        <ul>
+                                            <li><field  name="color"/></li>
+                                            <li><field  name="name"/></li>
+                                            <!-- <li><field  name="orders_count"/></li> -->
+                                            <li><field  name="quotations_count"/></li>
+                                            <li><field  name="orders_done_count"/></li>
+                                        </ul>
+                                    <field  name="color" widget="priority"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>   
+            </field>
+        </record>
+
+
+        <act_window id="action_order_regis_id"
+                    name="Order Register"
+                    res_model="custom.dashboard"
+                    view_mode="kanban,tree,form"/>
+
+        <menuitem name="Dashboard" id="webkul_employees_main_menu"/>
+            <menuitem  id="employees_dashboard_menu" 
+                parent="test1.menu_1" name="Dashboard" action="action_order_regis_id"/>
+    </data>
+</odoo>

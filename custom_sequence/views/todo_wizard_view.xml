@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+      <record id="cashadvance_seq" model="ir.sequence">
+        <field name="name">No_PD</field>
+        <field name="padding">3</field>
+        <field name="code">comben.cashadvance</field>
+      </record>
+
+    <record model="ir.actions.act_window" id="custom_action">
+      <field name="name">test2 window</field>
+      <field name="res_model">comben.cashadvance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+      <menuitem name="custom menu"  id="comben.cashadvance.menu" parent="test1.menu_1" action="custom_action"/>
+
+    </data>  
+  </openerp>

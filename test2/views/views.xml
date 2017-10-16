@@ -1,0 +1,113 @@
+<odoo>
+	<record id="view_form_todo_task" model="ir.ui.view"> 
+		<field name="name">To-do Task Form</field> 
+	    <field name="model">test2.test2</field> 
+	    <field name="arch" type="xml"> 
+
+	    	<form>
+	    		<header>
+	    			<button name="do_toggle_done" type="object" confirm="Are you sure you wantto open same form" string="zoom form" />
+ 				</header>
+ 				<sheet>
+ 					<group name="group_top">
+ 						<group name="group_left"> 
+				        <field name="name"/> 
+				        <field name="lname"/> 
+				        <!-- <field name="abc" widget="many2many_tags"/>  -->
+				      </group> 
+
+				      <group name="group_right"> 
+				        <field name="subtotal" value="True"/> 
+				        <field name="password" /> 
+				        <!-- <field name="xyz" widget="many2one_tags"/>  -->
+				        
+				      </group>
+
+				    <field name="product_ids" nolabel='1'>
+				    	<tree  editable="bottom">
+				    	
+
+					      <field name="product"/>
+					      <field name="description"/>
+					      <field name="date"/>
+					      <field name="quality"/>
+					      <field name="unit_price"/>
+					      <field name="Tax"/>
+					      <field name="subtotal"/>
+					      
+
+				  		</tree>
+
+				  </field>
+
+				    </group> 
+				</sheet>
+
+		   </form>
+
+	    </field> 
+
+	</record>
+	<record id="view_form_todo_task_new" model="ir.ui.view"> 
+
+	    <field name="name">To-do Task Form new</field> 
+	    <field name="model">test2.test2</field> 
+	    <field name="arch" type="xml"> 
+
+	        <form>
+  				<header> 
+   				 <button name="do_toggle_done_new" type="object" confirm="Are you sure you want to open new form" 
+    				  string="New form" />
+ 				</header>
+				<sheet> 
+
+				    <group name="group_top">
+				    	<field name="name"/> 
+				        <field name="lname"/> 
+				        <!-- <field name="abc" widget="many2many_tags"/>  -->
+
+				      <group name="group_right"> 
+				        <field name="subtotal"/> 
+				        <field name="password" /> 
+				        <!-- <field name="xyz" widget="many2many_tags"/>  -->
+				        
+				      </group>
+
+<!-- 				    <field name="product_ids" nolabel='1'>
+				    	<tree  editable="bottom">
+				    	
+
+					      <field name="product"/>
+					      <field name="description"/>
+					      <field name="date"/>
+					      <field name="quality"/>
+					      <field name="unit_price"/>
+					      <field name="email"/>
+
+				  		</tree>
+
+				  </field> -->
+
+				    </group> 
+				</sheet>
+
+		   </form>
+
+	    </field> 
+
+	</record> 
+
+	<record model="ir.actions.act_window" id="test2.action_window">
+		<field name="name">test2 signup</field>
+		<field name="res_model">test2.test2</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+	<menuitem name="test2" id="test2.menu_root"/>
+	<menuitem name="sign_up" id="test2.child_menu" parent="test2.menu_root" action="test2.action_window"/>
+
+
+
+</odoo>

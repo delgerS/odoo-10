@@ -1,0 +1,149 @@
+<odoo>
+	<data>
+						<!-- main todo.task model form record -->
+		<record id="view_form_todo_task" model="ir.ui.view"> 
+			<field name="name">To-do Task Form</field> 
+			<field name="model">todo.task</field> 
+			<field name="arch" type="xml"> 
+				<form>
+					<header> 
+						<button name="do_toggle_done" type="object" 
+										string="Open New Web "/>
+						<field name="stage_id" widget="statusbar" clickable="True"/>
+					</header> 
+						<sheet> 
+							<group name="group_top"> 
+
+								<group col="2">
+									<field name="name"/>
+									<field name="color" widget="color"/>
+									<field name="is_done"/> 
+									<field name="subtotal"/> 
+									<field name="image"/> 
+								</group>
+
+								<group name="group_left"> 
+								 <field name="sequence_id"/>
+								 <field name="name"/>
+								 <field name="lname"/>
+								</group>
+
+								<group name="group_right"> 
+									<field name="username"/> 
+									<field name="valid_password" password="True"/> 
+									<field name="email"/>
+								</group>
+
+								<field name="product_ids" nolabel='1'>
+									<tree  editable="bottom">
+
+										<field name="product"/>
+										<field name="description"/>
+										<field name="date"/>
+										<field name="quality"/>
+										<field name="unit_price"/>
+										<field name="subtotal"/>               
+
+									</tree>
+								</field>
+
+							</group> 
+						</sheet>
+				</form>
+			</field> 
+		</record>
+
+										<!-- custom sequence work  -->
+		<record id="custom_sequence" model="ir.sequence">
+			<field name="name">custom_sequence</field>
+			<field name="padding">3</field>
+			<field name="prefix">YA</field>
+			<field name="code">yasir.sgd</field>
+		</record>
+
+							<!-- tree work in kanban record -->
+		<record id="agenda_status_tree_view" model="ir.ui.view">
+			<field name="name">agenda.status.tree.view</field>
+			<field name="model">todo.task</field>
+			<field name="type">tree</field>
+			<field name="stage_id" eval="1"/>
+			<field name="arch" type="xml">
+				<tree string="Status">
+						<field name="name"/>
+						<!-- <field name="color" widget="color"/> -->
+						<field name="sequence_id"/>
+						<field name="name"/>
+						<field name="username"/>
+						<field name="stage_id"/>
+				</tree>
+		 </field>
+		</record>
+							<!-- kanban record todo.task -->
+		<record model="ir.ui.view" id="custom_module_kanban_view">
+			<field name="name">custom.module.kanban</field>
+			<field name="model">todo.task</field>
+			<field name="type">kanban</field>
+			<field name="arch" type="xml">
+				<kanban default_group_by="stage_id" class="o_kanban_small_column"  >
+					<field name="name" />
+					<field name="lname" />
+					<field name="color" />
+					<field name="image" />
+					<field name="stage_id" options="{&quot;group_by_tooltip&quot;: {&quot;description&quot;: &quot;Stage Description&quot;, &quot;legend_priority&quot;: &quot;Use of stars&quot;}}"/>
+										<templates>
+										<t t-name="kanban-box" class="o_kanban_small_column">
+												<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
+														<div class="o_dropdown_kanban dropdown" groups="base.group_user">
+																<a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+																		<span class="fa fa-bars fa-lg"/>
+																</a>
+																<a type="open">
+																		<img t-att-src="kanban_image('todo.task', 'image', record.id.value)" class="oe_kanban_avatar pull-right" width="30" height="30"/>
+																</a>
+																<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+																		<t t-if="widget.editable"><li><a type="edit">Edit Task</a></li></t>
+																		<t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
+																		<li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+																</ul>
+														</div>
+														<div class="oe_kanban_content">
+																<div>
+																		<field name="name"/>
+																</div>
+																<div>
+																		<strong><field name="lname"/></strong>
+																</div>
+														</div>
+														<div t-if="record.image.value">
+																<!-- <field name="image" widget="attachment_image"/> -->
+														</div>
+														<div class="oe_clear"/>
+												</div>
+										</t>
+										</templates>
+				</kanban>
+			</field>
+		</record>
+		
+							<!-- action kanban window  -->
+		<record model="ir.actions.act_window" id="test1.action_window">
+			<field name="name">test2 window</field>
+			<field name="res_model">todo.task</field>
+			<field name="view_mode">kanban,tree,form</field>
+		</record>
+
+
+		<menuitem name="test1" id="test1.menu_root"/>
+	
+		
+			<menuitem name="Menu 1" id="test1.menu_1" parent="test1.menu_root"/>
+
+			<!-- purchase order menu item in purchase are goes to puchase/contro -->
+			<menuitem name="purchase order" id="purchase.menu_purchase_form_action"
+								parent="purchase.menu_purchase_control"/>
+		
+			<menuitem name="test1_form"   id="test1.menu_1_list" 
+								parent="test1.menu_1" action="test1.action_window" sequence="0"/>
+		
+	</data>
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+	<record id="expense_form_extension_saif" model="ir.ui.view"> 
+		<field name="name">expense_form_extension_saif</field> 
+		<field name="model">saif.extension</field> 
+		<field name="arch" type="xml"> 
+			<form>
+				<header>
+					<button name="change" type="object" string="change" attrs="{'invisible':['|','|',('payment_bank','=',True)]}" />
+					<!-- <button name="cancel" type="object" string="cancel"/> -->
+					<field name="state" widget ="statusbar"  statusbar_visible="a,b" clickable="True" />
+				</header>
+				<sheet> 
+					<group name="group_top"> 
+
+						<group name="group_left"> 
+
+							<field name="Employee" attrs="									   {'invisible':[('hide_F','!=','Employee')]}"/> 
+							<field name="date" attrs="										   {'invisible':[('hide_F','!=','Date')]}"/>
+							<field name="department"/>
+							<field name="amount"/>
+							<field name="returned"/>
+							<field name="net"/>
+						
+						</group> 
+
+					  <group name="group_right"> 
+						<field name="payment_bank"/> 
+						<field name="cash_book" />				        
+						<field name="description" />				        
+						<field name="curency" />				        
+						<field name="hide_F" />				        
+						<field name="typea" />				        
+					  </group>
+
+					<field name="saif_tree_link" nolabel='1' 
+						   attrs="{'invisible':[('hide_F','!=','tree')]}">
+						
+						<tree  editable="bottom">
+						  <field name="expense_date"/>
+						  <field name="expense_note"/>
+						  <field name="reference"/>
+						  <field name="unit_of_measure"/>
+						  <field name="unit_of_price"/>
+						  <field name="quantities"/>
+						  <field name="total"/>
+						</tree>
+
+					</field>
+
+					</group> 
+				</sheet>
+
+		   </form>
+
+		</field> 
+
+	</record>
+
+
+	<record model="ir.actions.act_window" id="saif_expense">
+		<field name="name">Saif Expenses</field>
+		<field name="res_model">saif.extension</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+
+
+	<!-- <menuitem name="My Expenses" id="saif_expenses"/> -->
+	<!-- <menuitem name="My Expense" id="saif_expenses_main" parent="saif_expenses"/> -->
+	<menuitem name="Expenses" id="saif_child_expenses" parent="hr_expense.menu_hr_expense_my_expenses" action="saif_expense"/>
+
+	<menuitem name="Module_saif_expense" id="saif_child_expenses" parent="test1.menu_1" action="saif_expense" sequence="2"/>
+</odoo>

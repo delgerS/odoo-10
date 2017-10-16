@@ -1,0 +1,5 @@
+<openerp>
+    <data noupdate="1">
+        <function model="todo.task" name="install"/>
+    </data>
+</openerp>

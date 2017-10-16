@@ -1,0 +1,16 @@
+<odoo>
+    <record id="res_partner_custom" model="ir.ui.view">
+        <field name="name">res_partner_custom</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/> 
+        <field name="arch" type="xml">
+                
+            <xpath expr="." position="inside">
+                <header>
+                    <button name="call" type="object" string="click2call" class="oe_right oe_highlight" />
+                </header>
+             </xpath>
+                  
+        </field>
+    </record>
+</odoo>
