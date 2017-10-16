@@ -8,8 +8,8 @@ os.system('git add *')
 os.system('git status')
 os.system('git commit -m "this is your comment"')
 master='git push origin master'
+p = os.system('echo %s| sudo -S %s' % (username, master))
 # os.system('git push origin master')
-os.system('echo "khyasir"|sudo -S',master)
 # os.system('echo %s' % (master))
 # username='khyasir'
 # password='yasir43'
