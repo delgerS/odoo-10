@@ -1,0 +1,36 @@
+return means, "output this value from this function".
+
+The return statement causes your function to exit and hand back a value to its caller. The point of functions in general is to take in inputs and return something. The return statement is used when a function is ready to return a value to its caller.
+
+Basically return not about just returning it gives output in object form so that we can save that return value from function to any variable
+
+a return statement causes execution to leave the current subroutine and resume at the point in the code immediately after where the subroutine was called, known as its return address
+
+
+recursion
+
+calculating a number by the repeated application of an algorithm.
+
+process of returning or running back.
+
+Recursion is a process in which a function calls itself as a subroutine. This allows the function to be repeated several times, since it calls itself during its execution.
+
+
+	def calculateTaxAmount(self, taxes, qty, price_unit):
+		amount_tax = 0
+		child_tax = 0
+		for tax in taxes:
+			if tax.enable_child_tax:
+				if tax.children_tax_ids:
+					child_tax = 0
+					for childtax in tax.children_tax_ids:
+						child_amount_tax = qty * price_unit * (childtax.amount/100) * (tax.amount/100)
+		
+						child_tax = child_tax + child_amount_tax 
+					parent_tax = qty * price_unit * (tax.amount /100)
+					amount_tax+ = child_tax + parent_tax
+			else:
+				amount_tax += qty * price_unit * (tax.amount /100)
+		
+		return amount_tax
+

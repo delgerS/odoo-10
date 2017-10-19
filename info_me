@@ -1,0 +1,79 @@
+sudo cp /home/odoo/t.py /home/yasir/t.py
+upload file or folder into github
+1 mkdir name
+cd name
+git init
+git remote add origin https://github.com/khyasir/odoo-10-module.git
+git status
+
+git add *
+git status
+git commit -m "this is your comment"
+git push origin master
+username
+password
+
+Odoo does not support Python 3 yet, so Python 2 is required.
+GitHub source ?????????????????????
+PostgreSQL database
+Debian????/UBUNTO
+Secure Shell SA acess kry ga server ko 
+LAPP image????
+what is Git???
+bash prompt.???
+log verbosity.?????
+text editor IDE
+Odoo instances????
+MVC-like architecture,????????????/
+dependencies?????????????
+...........................................................
+ ~ symbol is a shortcut for our home directory (for example, /home/odoo
+
+search a softer using terminal 
+sudo apt-cache search name  ERoor
+
+
+28-9-17
+[
+compute atribute in field ??? 
+@api.one  ????
+@api.depends ???
+]
+recurtion & return explain brifly ????//
+constractive function
+
+
+
+............................................................
+update server ...............
+$ ~/odoo-dev/odoo/odoo-bin -d db_xyz -u xyz --addons-path="odoo-dev/Projects/db_xyz/,odoo-dev/odoo/addons"
+~/odoo-dev/odoo/odoo-bin  --addons-path="odoo-dev/custom_addons/yasirdb/,odoo-dev/odoo/addons"
+
+
+$ createdb demo     	         # creat db
+$ psql -l   			 # watch data base
+quite 				 # shift q
+$ dropdb db-name		 # del data base
+terminal command
+ls 
+cd           #go for home directory
+#watch cureent directory
+$ ~ sudo
+pwd
+$ echo $HOME
+.............
+watch curentuser
+$ whoami
+for check the adress of server e:g 3643
+~$ ps aux | grep odoo-bin
+~$ sudo kill
+~$ sudo kill -9 3643(this is  adresss)  #this command stop the aderss o the server
+creat a new module 
+$ odoo-bin scaffold <module name> <where to put it>
+~$ ~/odoo-dev/odoo/odoo-bin scaffold xyz odoo-dev/Projects/db_xyz
+
+start server with built in and custom module 
+$ ~/odoo-dev/odoo/odoo-bin --addons-path="Projects/Demo/,odoo/addons"
+or
+
+$ ~/odoo-dev/odoo/odoo-bin --addons-path="Projects/Demo/,odoo/addons"

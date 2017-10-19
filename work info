@@ -1,0 +1,27 @@
+show a satage wise data in ufc module ufc_automization_10
+using domain attribute in view menu action
+
+
+	# @api.multi
+	# def write(self,val):
+
+	# 	# val['name'] = "rauf"
+	# 	record1122=super(TodoTask, self).write(val)
+	# 	return record1122
+todo.task ka under hi kisi bi field ko hard coted value assign krna 
+
+
+compute = '_get_count'
+
+
+vim ~/.bashrc
+vim  ~/.bash_aliases 				if in deskrop mak file (vim  ~/Desktop/.bash_aliases or )
+
+alias champion='~/odoo-dev/odoo/odoo-bin --addons-path="odoo-dev/custom_addons/champion/,odoo-dev/odoo/addons" -d champnew'
+alias killodoo='sudo kill -9$(pgrep -f odoo-bin)
+
+source .profile .bashrc .bash_aliases
+champion start server
+
+if remove rm .bash_aliases
+
