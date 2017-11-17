@@ -8,7 +8,7 @@ class AccountExtension(models.Model):
 
 	paid = fields.Float(string='Paid')
 	received = fields.Float(string='Received')
-	proj	 = fields.Many2one('project.project',string='Project', required=True)
+	proj	 = fields.Many2one('project.project',string='Project')
 	account	 = fields.Many2one('account.account',string='Account', required=True)
 
 	@api.onchange('paid')
