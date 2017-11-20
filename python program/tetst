@@ -1,0 +1,4 @@
+abc[1,2]
+aa=cc[1]
+abc.append(aa)
+print abc
